@@ -7,7 +7,12 @@ ifeq (,$(findstring MSYS,$(MSYSTEM)))
     # On Windows, but NOT msys
     MKD = cmd //C mkdir
     RM = cmd //C rmdir //Q //S
-else
+endif
+ifneq (,$(findstring MSYS,$(MSYSTEM)))
+    MKD = mkdir -p
+    RM = rm -rf
+endif
+ifneq (,$(findstring MINGW64,$(MSYSTEM)))
     MKD = mkdir -p
     RM = rm -rf
 endif
