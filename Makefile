@@ -4,9 +4,9 @@ ifeq ($(OS),Windows_NT)
     CC = gcc
     TARGET := libfzf.dll
 ifeq (,$(findstring MSYS,$(MSYSTEM)))
-	# On Windows, but NOT msys
-    MKD = cmd /C mkdir
-    RM = cmd /C rmdir /Q /S
+    # On Windows, but NOT msys
+    MKD = cmd //C mkdir
+    RM = cmd //C rmdir //Q //S
 else
     MKD = mkdir -p
     RM = rm -rf
